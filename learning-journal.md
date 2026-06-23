@@ -67,3 +67,16 @@ await page.waitForSelector('text=/thank you/i', { state: 'visible' });
 console.info('🎉 Successfully reached the Thank You page!');
 ```
 And executed a final Git commit!
+
+## Step 7: Clean Architecture (POM Refactor)
+**What we did:** Abstracted all DOM selectors and interaction logic into a dedicated `HomePage.js` class file, and updated `automation.js` to call those class methods instead.
+**Why we did it:** The Page Object Model (POM) is the industry standard for UI test automation. It ensures the execution script reads cleanly like a story and centralizes all HTML locators in one place, making the code highly maintainable.
+**How we did it:**
+Created a new `HomePage` object:
+```javascript
+const homePage = new HomePage(page);
+await homePage.navigate(CONFIG.targetUrl);
+await homePage.fillContactForm(CONFIG.formData);
+await homePage.submitForm();
+await homePage.verifySubmissionSuccess();
+```
