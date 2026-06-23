@@ -48,7 +48,10 @@ async function run() {
         console.info('🖱️ Clicking the "Request a call back" submit button...');
         await page.getByRole('button', { name: 'Request a call back' }).click();
 
-        // TODO: Validation & Cleanup will go here
+        console.info('⏳ Waiting for the "Thank you" page to load...');
+        await page.waitForSelector('text=/thank you/i', { state: 'visible' });
+        
+        console.info('🎉 Successfully reached the Thank You page!');
 
     } catch (error) {
         console.error('❌ An error occurred during automation:', error);

@@ -45,3 +45,14 @@ await page.getByLabel('Website').fill(CONFIG.formData.website);
 await page.getByRole('combobox').selectOption(CONFIG.formData.employees);
 ```
 And then committed our checkpoint to Git.
+
+## Step 5: Visual Verification & Submission
+**What we did:** Added logic to take a full-page screenshot and then click the "Request a call back" button.
+**Why we did it:** The full-page screenshot provides proof that the form was filled correctly before submission. We used `getByRole('button')` because it's the most robust way to find buttons that function as submissions.
+**How we did it:**
+Added the following logic to `automation.js`:
+```javascript
+await page.screenshot({ path: 'screenshot-before-submit.png', fullPage: true });
+await page.getByRole('button', { name: 'Request a call back' }).click();
+```
+And then committed our checkpoint to Git.

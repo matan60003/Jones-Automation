@@ -15,7 +15,7 @@
   - Implement the Bonus requirement: Change "Number of Employees" dropdown to "51-500".
   - *Checkpoint:* Run the script visually (`headless: false`) to verify fields are populated correctly. Commit changes.
 
-- [ ] **STEP-003: Visual Verification & Submission**
+- [x] **STEP-003: Visual Verification & Submission**
   - Add logic to capture a screenshot of the page and save it locally.
   - Add logic to click the "Request a call back" button.
   - *Checkpoint:* Verify the image is saved in the directory. Commit changes.
