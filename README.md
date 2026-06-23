@@ -14,13 +14,13 @@ Since this project is already initialized with Node.js and Playwright, running t
 2. Ensure you are in the project folder: `c:\Users\matan\Desktop\Jones Automation`
 3. Run the following command:
    ```bash
-   node automation.js
+   node tests/automation.js
    ```
 
 ## How to Perform a Test Yourself
 To ensure everything is really working as expected, follow these exact steps:
 
-1. **Start the Script**: Run `node automation.js` in your terminal.
+1. **Start the Script**: Run `node tests/automation.js` in your terminal.
 2. **Watch the Browser**: Because the script is configured to run in "headed" mode (`headless: false`), you will see a Chromium browser window physically open on your screen.
 3. **Observe the Automation**: Take your hands off the mouse and keyboard! Watch as Playwright automatically navigates to `https://test.netlify.app/` and types into the fields at superhuman speed.
 4. **Check the Image**: Once the browser closes, look inside your project folder. You will find a new file named `screenshot-before-submit.png`. Open it to verify a picture was successfully captured.
@@ -47,7 +47,7 @@ The exercise provided 5 specific requirements. Here is how you can verify each o
 ## How to Check the Logs
 As the script runs, it uses `console.info()` and `console.error()` to print structured logs directly to your terminal. 
 
-When you run the command `node automation.js`, your terminal should output exactly this sequence of events:
+When you run the command `node tests/automation.js`, your terminal should output exactly this sequence of events:
 
 ```text
 🚀 Starting automation script...

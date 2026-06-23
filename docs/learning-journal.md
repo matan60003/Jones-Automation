@@ -80,3 +80,13 @@ await homePage.fillContactForm(CONFIG.formData);
 await homePage.submitForm();
 await homePage.verifySubmissionSuccess();
 ```
+
+## Step 8: Scalable Folder Restructuring
+**What we did:** Reorganized the flat workspace into structured directories (`config/`, `docs/`, `pages/`, `tests/`, `output/`).
+**Why we did it:** To separate the test configuration (`data.js`) from the execution scripts, move page objects to a dedicated `pages` directory, and hide away documentation and generated screenshots. This makes the project highly scalable and organized.
+**How we did it:**
+Moved files to their respective folders and updated the import paths. For example, `automation.js` now imports the POM like this:
+```javascript
+import { HomePage } from '../pages/HomePage.js';
+import { CONFIG } from '../config/data.js';
+```

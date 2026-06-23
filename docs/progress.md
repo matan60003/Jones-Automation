@@ -30,3 +30,9 @@
   - Abstract DOM interactions and locators into `HomePage.js`.
   - Refactor `automation.js` to utilize the `HomePage` object.
   - *Checkpoint:* Run the full suite using POM. Commit changes.
+
+- [x] **STEP-006: Scalable Folder Restructuring**
+  - Create directories (`config`, `docs`, `pages`, `tests`, `output`).
+  - Extract the `CONFIG` object into `config/data.js`.
+  - Move files to their respective locations and update imports.
+  - *Checkpoint:* Run `node tests/automation.js` and verify paths. Commit changes.
