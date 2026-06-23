@@ -10,7 +10,7 @@
   - Write the boilerplate code to launch Chromium and navigate to the target URL.
   - *Checkpoint:* Run the script to verify the browser opens the correct page. Commit changes.
 
-- [ ] **STEP-002: Form Interaction**
+- [x] **STEP-002: Form Interaction**
   - Implement filling of text fields: Name, Email, Phone, Company, Website.
   - Implement the Bonus requirement: Change "Number of Employees" dropdown to "51-500".
   - *Checkpoint:* Run the script visually (`headless: false`) to verify fields are populated correctly. Commit changes.

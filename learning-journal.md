@@ -30,3 +30,18 @@ Wrote the code into `automation.js` and ran:
 ```powershell
 node automation.js
 ```
+
+## Step 4: Form Interaction
+**What we did:** Filled out the form fields and changed the "Number of Employees" dropdown. We then committed these changes to Git.
+**Why we did it:** To complete the core requirement of the exercise. We used `getByLabel` instead of CSS selectors because it is more resilient to code changes and mimics how a real human finds inputs (by reading the text next to them).
+**How we did it:**
+Added the following logic to `automation.js`:
+```javascript
+await page.getByLabel('Name').fill(CONFIG.formData.name);
+await page.getByLabel('Email').fill(CONFIG.formData.email);
+await page.getByLabel('Phone').fill(CONFIG.formData.phone);
+await page.getByLabel('Company').fill(CONFIG.formData.company);
+await page.getByLabel('Website').fill(CONFIG.formData.website);
+await page.getByRole('combobox').selectOption(CONFIG.formData.employees);
+```
+And then committed our checkpoint to Git.

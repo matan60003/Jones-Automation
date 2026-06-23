@@ -42,7 +42,13 @@ async function run() {
         // For the dropdown (Bonus Requirement), we target the combobox element
         await page.getByRole('combobox').selectOption(CONFIG.formData.employees);
 
-        // TODO: Visual Verification & Submission will go here
+        console.info('📸 Taking a full-page screenshot...');
+        await page.screenshot({ path: 'screenshot-before-submit.png', fullPage: true });
+
+        console.info('🖱️ Clicking the "Request a call back" submit button...');
+        await page.getByRole('button', { name: 'Request a call back' }).click();
+
+        // TODO: Validation & Cleanup will go here
 
     } catch (error) {
         console.error('❌ An error occurred during automation:', error);
