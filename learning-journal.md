@@ -56,3 +56,14 @@ await page.screenshot({ path: 'screenshot-before-submit.png', fullPage: true });
 await page.getByRole('button', { name: 'Request a call back' }).click();
 ```
 And then committed our checkpoint to Git.
+
+## Step 6: Validation & Cleanup
+**What we did:** Implemented a wait mechanism to detect the "Thank You" page and print a success message.
+**Why we did it:** Playwright acts incredibly fast; if we didn't explicitly wait for the page to show "Thank you", the script would finish and the browser would close before the submission successfully processed. We used `waitForSelector('text=...')` because it checks the visual rendering of the page rather than relying on URL patterns.
+**How we did it:**
+Added the following logic:
+```javascript
+await page.waitForSelector('text=/thank you/i', { state: 'visible' });
+console.info('🎉 Successfully reached the Thank You page!');
+```
+And executed a final Git commit!

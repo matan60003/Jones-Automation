@@ -3,6 +3,7 @@
 ## Core Architecture
 - Always use `@playwright/test` or the standalone `playwright` module correctly according to the project setup.
 - Enforce strict `async/await` usage for all Playwright actions.
+- **Utilize the Page Object Model (POM)**: Separate execution logic from DOM locators to keep tests clean and maintainable.
 
 ## Selectors & Interactivity
 - Prefer resilient selectors: user-facing text (`text="Submit"`), placeholders, or ARIA labels over brittle XPaths or complex CSS paths.

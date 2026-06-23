@@ -20,8 +20,13 @@
   - Add logic to click the "Request a call back" button.
   - *Checkpoint:* Verify the image is saved in the directory. Commit changes.
 
-- [ ] **STEP-004: Validation & Cleanup**
+- [x] **STEP-004: Validation & Cleanup**
   - Add a wait mechanism to detect the "Thank you" page.
   - Write a success message to the console.
   - Ensure the browser instance is properly closed.
   - *Checkpoint:* Run the full flow end-to-end. Commit changes.
+
+- [x] **STEP-005: Clean Architecture (POM Refactor)**
+  - Abstract DOM interactions and locators into `HomePage.js`.
+  - Refactor `automation.js` to utilize the `HomePage` object.
+  - *Checkpoint:* Run the full suite using POM. Commit changes.

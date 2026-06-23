@@ -1,15 +1,16 @@
 import { chromium } from 'playwright';
+import { HomePage } from './HomePage.js';
 
 // --- CONFIGURATION ---
 const CONFIG = {
     targetUrl: 'https://test.netlify.app/',
     formData: {
-        name: 'John Doe',
-        email: 'john@example.com',
-        phone: '555-0198',
-        company: 'Jones Automation Inc',
+        name: 'Matan Owadeyah',
+        email: 'matan60003@gmail.com',
+        phone: '050-6486657',
+        company: 'Matan Owadeyah Automation',
         website: 'https://jonesautomation.com',
-        employees: '51-500' // Bonus requirement
+        employees: '51-500'
     }
 };
 // ---------------------
@@ -17,45 +18,27 @@ const CONFIG = {
 async function run() {
     console.info('🚀 Starting automation script...');
     let browser;
-    
+
     try {
         console.info('Launching Chromium browser (headed mode)...');
-        browser = await chromium.launch({ headless: false }); 
-        
+        browser = await chromium.launch({ headless: false });
+
         const context = await browser.newContext();
         const page = await context.newPage();
 
-        console.info(`Navigating to target URL: ${CONFIG.targetUrl}`);
-        await page.goto(CONFIG.targetUrl);
+        // 1. Initialize our Page Object
+        const homePage = new HomePage(page);
 
-        console.info('✅ Successfully loaded the page. Ready for next steps.');
-        
-        console.info('📝 Filling out the form fields...');
-        // Fill text fields using user-facing label selectors
-        await page.getByLabel('Name').fill(CONFIG.formData.name);
-        await page.getByLabel('Email').fill(CONFIG.formData.email);
-        await page.getByLabel('Phone').fill(CONFIG.formData.phone);
-        await page.getByLabel('Company').fill(CONFIG.formData.company);
-        await page.getByLabel('Website').fill(CONFIG.formData.website);
-
-        console.info(`🔄 Updating Number of Employees dropdown to: ${CONFIG.formData.employees}`);
-        // For the dropdown (Bonus Requirement), we target the combobox element
-        await page.getByRole('combobox').selectOption(CONFIG.formData.employees);
-
-        console.info('📸 Taking a full-page screenshot...');
-        await page.screenshot({ path: 'screenshot-before-submit.png', fullPage: true });
-
-        console.info('🖱️ Clicking the "Request a call back" submit button...');
-        await page.getByRole('button', { name: 'Request a call back' }).click();
-
-        console.info('⏳ Waiting for the "Thank you" page to load...');
-        await page.waitForSelector('text=/thank you/i', { state: 'visible' });
-        
-        console.info('🎉 Successfully reached the Thank You page!');
+        // 2. Perform high-level actions using clean architecture
+        await homePage.navigate(CONFIG.targetUrl);
+        await homePage.fillContactForm(CONFIG.formData);
+        await homePage.submitForm();
+        await homePage.verifySubmissionSuccess();
 
     } catch (error) {
         console.error('❌ An error occurred during automation:', error);
     } finally {
+        // Bug Fix: Re-enabled the finally block to ensure the Node process doesn't hang!
         if (browser) {
             console.info('🧹 Closing the browser to clean up resources...');
             await browser.close();
