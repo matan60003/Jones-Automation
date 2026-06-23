@@ -1,19 +1,6 @@
 import { chromium } from 'playwright';
-import { HomePage } from './HomePage.js';
-
-// --- CONFIGURATION ---
-const CONFIG = {
-    targetUrl: 'https://test.netlify.app/',
-    formData: {
-        name: 'Matan Owadeyah',
-        email: 'matan60003@gmail.com',
-        phone: '050-6486657',
-        company: 'Matan Owadeyah Automation',
-        website: 'https://jonesautomation.com',
-        employees: '51-500'
-    }
-};
-// ---------------------
+import { HomePage } from '../pages/HomePage.js';
+import { CONFIG } from '../config/data.js';
 
 async function run() {
     console.info('🚀 Starting automation script...');
@@ -38,7 +25,6 @@ async function run() {
     } catch (error) {
         console.error('❌ An error occurred during automation:', error);
     } finally {
-        // Bug Fix: Re-enabled the finally block to ensure the Node process doesn't hang!
         if (browser) {
             console.info('🧹 Closing the browser to clean up resources...');
             await browser.close();
