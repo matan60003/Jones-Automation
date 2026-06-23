@@ -4,7 +4,7 @@
 
 ## Pending Steps
 
-- [ ] **STEP-001: Setup & Initialization**
+- [x] **STEP-001: Setup & Initialization**
   - Initialize Node project and install Playwright.
   - Create the base execution file (`automation.js`).
   - Write the boilerplate code to launch Chromium and navigate to the target URL.

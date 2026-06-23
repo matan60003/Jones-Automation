@@ -30,7 +30,19 @@ async function run() {
 
         console.info('✅ Successfully loaded the page. Ready for next steps.');
         
-        // TODO: Form interaction and validation logic will go here
+        console.info('📝 Filling out the form fields...');
+        // Fill text fields using user-facing label selectors
+        await page.getByLabel('Name').fill(CONFIG.formData.name);
+        await page.getByLabel('Email').fill(CONFIG.formData.email);
+        await page.getByLabel('Phone').fill(CONFIG.formData.phone);
+        await page.getByLabel('Company').fill(CONFIG.formData.company);
+        await page.getByLabel('Website').fill(CONFIG.formData.website);
+
+        console.info(`🔄 Updating Number of Employees dropdown to: ${CONFIG.formData.employees}`);
+        // For the dropdown (Bonus Requirement), we target the combobox element
+        await page.getByRole('combobox').selectOption(CONFIG.formData.employees);
+
+        // TODO: Visual Verification & Submission will go here
 
     } catch (error) {
         console.error('❌ An error occurred during automation:', error);
