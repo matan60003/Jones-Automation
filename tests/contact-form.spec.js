@@ -29,7 +29,7 @@ test.describe('Contact Form Workflow', () => {
 
         await test.step('Verify success message', async () => {
             await expect(homePage.successMessageLocator).toBeVisible();
-            console.log('🎉 Successfully reached the Thank You page!');
+            console.log('Successfully reached the Thank You page!');
         });
     });
 });
