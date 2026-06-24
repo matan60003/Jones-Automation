@@ -90,3 +90,10 @@ Moved files to their respective folders and updated the import paths. For exampl
 import { HomePage } from '../pages/HomePage.js';
 import { CONFIG } from '../config/data.js';
 ```
+
+## Step 9: Migrate to Playwright Test Runner
+**What we did:** Migrated the project from using the bare Playwright Library (`chromium.launch()`) to the official `@playwright/test` test runner.
+**Why we did it:** To remove boilerplate code, enable parallel execution across different browsers, enforce best practices using built-in assertions (`expect()`), and ensure failures correctly exit with an error code for CI/CD pipelines.
+**How we did it:**
+Installed `@playwright/test`, created a `playwright.config.js`, and converted our test script to use the `test()` and `expect()` blocks.
+

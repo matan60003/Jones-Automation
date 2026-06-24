@@ -1,2 +1,14 @@
 node_modules/
 output/
+test-results/
+playwright-report/
+blob-report/
+
+# Personal documentation
+docs/learning-journal.md
+docs/playwright-standards.md
+docs/progress.md
+
+# Other common ignores
+.env
+.DS_Store

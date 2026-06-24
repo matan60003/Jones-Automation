@@ -36,3 +36,9 @@
   - Extract the `CONFIG` object into `config/data.js`.
   - Move files to their respective locations and update imports.
   - *Checkpoint:* Run `node tests/automation.js` and verify paths. Commit changes.
+
+- [x] **STEP-007: Test Runner Migration**
+  - Migrate legacy standalone script to `@playwright/test`.
+  - Fix SRP violations and hardcoded paths.
+  - Implement robust assertions with `expect`.
+  - *Checkpoint:* Run the full suite using `npx playwright test`. Commit changes.

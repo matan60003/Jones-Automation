@@ -1,7 +1,7 @@
 # Playwright Automation Standards
 
 ## Core Architecture
-- Always use `@playwright/test` or the standalone `playwright` module correctly according to the project setup.
+- Always use `@playwright/test` for test execution. Standalone `playwright` scripts should be avoided for standard automation.
 - Enforce strict `async/await` usage for all Playwright actions.
 - **Utilize the Page Object Model (POM)**: Separate execution logic from DOM locators to keep tests clean and maintainable.
 - **Maintain Scalable Directory Structure**: Keep `tests/`, `pages/`, and `config/` strictly separated. Never mix test logic with configuration data.

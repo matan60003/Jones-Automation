@@ -1,11 +1,10 @@
 export const CONFIG = {
-    targetUrl: 'https://test.netlify.app/',
     formData: {
-        name: 'Matan Owadeyah',
-        email: 'matan60003@gmail.com',
-        phone: '050-6486657',
-        company: 'Matan Owadeyah Automation',
-        website: 'https://jonesautomation.com',
+        name: 'Test User',
+        email: 'testuser@example.com',
+        phone: '050-0000000',
+        company: 'Test Automation Ltd',
+        website: 'https://example.com',
         employees: '51-500'
     }
 };
